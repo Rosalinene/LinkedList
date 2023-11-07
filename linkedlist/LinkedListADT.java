@@ -52,14 +52,14 @@ public class LinkedListADT  <T extends Comparable> implements LinkedListInterfac
         if(back == null)
         {
             AddFront(obj);
-        }//End if
+        }//End if loop
         else
         {
             Node<T> temp = new Node(null, back, (T)obj);
             back.setNext(temp);
             back = temp;
             size++;
-        }//End else
+        }//End else loop
     }//End Append
 
     @Override
@@ -69,13 +69,13 @@ public class LinkedListADT  <T extends Comparable> implements LinkedListInterfac
         {
             Node<T> temp = new Node<T>(null, null,(T)obj);
             front = back = temp;
-        }//End if
+        }//End if loop
         else
         {
             Node<T> temp = new Node<T>(front, null, (T)obj);
             front.setPrevious(temp);
             front = temp;
-        }//End else
+        }//End else loop
         size++;
     }//End AddFront
 
@@ -85,26 +85,34 @@ public class LinkedListADT  <T extends Comparable> implements LinkedListInterfac
     */
     public void Insert(Object obj, int position) 
     {
-        if (position == 0) {
+        if (position == 0) 
+        {
             AddFront(obj);
-        }
-        else if (position > this.size) {
+        }//End if loop
+        else if (position > this.size) 
+        {
             throw new IllegalArgumentException("Position must be less or equal to list size");
-        }
-        else {
+        }//End else if
+        else 
+        {
             Node<T> current = front;
-            for(int i = 0; i < position-1; i++) {
+            for(int i = 0; i < position-1; i++) 
+            {
                 current = current.getNext();
-            }
+            }//End for loop
+            
             Node<T> next = current.getNext();
             Node<T> temp = new Node<T>(next, current, (T)obj);
+            
             current.setNext(temp);
-            if (next != null) {
+   
+            if (next != null) 
+            {
                 next.setPrevious(temp);
-            }
+            }//End if loop
             size++;
-        }
-    }
+        }//End else loop
+    }//End Insert(Object obj, int position) 
 
     @Override
     /*
@@ -125,10 +133,10 @@ public class LinkedListADT  <T extends Comparable> implements LinkedListInterfac
             current = current.getNext();
             temp = (Comparable)current.getValue();
             count++;
-        }
+        }//End while loop
         
         Insert(obj, count);
-    }
+    }//End Insert(Object obj)
 
     @Override
     public boolean RemoveEnd() 
@@ -140,21 +148,21 @@ public class LinkedListADT  <T extends Comparable> implements LinkedListInterfac
             if(front == back)
             {
                 front = back = null;
-            }
+            }//End if loop
             else
             {
                 Node<T> temp = back.getPrevious();
                 temp.setNext(null);
                 back.setPrevious(null);
                 back = temp;
-            }
+            }//End else
             
             size--;
             result = true;
-        }
+        }//End if loop
         
         return result;
-    }
+    }//End RemoveEnd() 
 
     @Override
     public boolean RemoveFront() 
@@ -166,21 +174,21 @@ public class LinkedListADT  <T extends Comparable> implements LinkedListInterfac
             if(front == back)
             {
                 front = back = null;
-            }
+            }//End if loop
             else
             {
                 Node<T> temp = front.getNext();
                 temp.setPrevious(null);
                 front.setNext(null);
                 front = temp;
-            }
-            
+            }//End else loop
+           
             size--;
             result = true;
-        }
+        }//End if loop
         
         return result;
-    }
+    }//End RemoveFront() 
 
     /*
     YOUR HOMEWORK
@@ -189,29 +197,39 @@ public class LinkedListADT  <T extends Comparable> implements LinkedListInterfac
     public boolean RemoveAt(int position) 
     {
         boolean result = false;
-        if (position == 0) {
+        
+        if (position == 0) 
+        {
             result = RemoveFront();
-        }
-        else if (position >= size) {
+        }//End if loop
+        else if (position >= size) 
+        {
             throw new IllegalArgumentException("Position out of bounds");
-        }
-        else {
+        }//End else if
+        else 
+        {
             Node <T> current = front;
-            for (int i = 0; i < position-1; i++) {
+            
+            for (int i = 0; i < position-1; i++) 
+            {
                 current = current.getNext();
-            }
+            }//End for loop
+            
             Node <T> next = current.getNext();
             Node <T> next_next = next.getNext();
             next = null;
             current.setNext(next_next);
-            if (next_next != null) {
+            
+            if (next_next != null) 
+            {
                 next_next.setPrevious(current);
-            }
+            }//End if loop 
+            
             size--;
             result = true;
-        }
+        }//End else
         return result;
-    }
+    }//End RemoveAt
 
     @Override
     public boolean Remove(Object obj) 
@@ -223,11 +241,11 @@ public class LinkedListADT  <T extends Comparable> implements LinkedListInterfac
             if(obj.equals(front.getValue()))
             {
                 result = RemoveFront();
-            }
+            }//End if loop
             else if(obj.equals(back.getValue()))
             {
                 result = RemoveEnd();
-            }
+            }//End else if
             else
             {
                 Node<T> temp, temp2, temp3;
@@ -236,7 +254,8 @@ public class LinkedListADT  <T extends Comparable> implements LinkedListInterfac
                 while(temp.getNext() != null && !(temp.getValue().equals(obj)))
                 {
                     temp = temp.getNext();
-                }
+                }//End while loop
+                
                 if(temp.getValue().equals(obj))
                 {
                     temp2 = temp.getPrevious();
@@ -249,13 +268,11 @@ public class LinkedListADT  <T extends Comparable> implements LinkedListInterfac
                     temp.setPrevious(null);
                     size--;
                     result = true;                                              
-                }
-                    
-            }
-        }
-        
+                }//End if loop     
+            }//End else
+        }//End if loop      
         return result;
-    }
+    }//End Remove
 
     /*
     YOUR HOMEWORK
@@ -266,32 +283,38 @@ public class LinkedListADT  <T extends Comparable> implements LinkedListInterfac
         boolean result = false;
         Node <T> current = front;
         int position = 0;
-        while (current != null) {  
-            if (current.getValue() == (T)obj) {
+        
+        while (current != null) 
+        {  
+            if (current.getValue() == (T)obj) 
+            {
                 RemoveAt(position);
                 position--;
-            }
+            }//End if loop           
             current = current.getNext();
             position++;
-        }
+        }//End while loop
         result = true;
         return result;
-    }
+    }//End RemoveAll
 
     @Override
-    public Object GetValue(int position) {
+    public Object GetValue(int position) 
+    {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    }//End GetValue
 
     @Override
-    public Object GetValueEnd() {
+    public Object GetValueEnd() 
+    {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    }//End GetValueEnd() 
 
     @Override
-    public Object GetValueFront() {
+    public Object GetValueFront() 
+    {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    }//End GetValueFront() 
 
     @Override
     public String toString() 
@@ -310,5 +333,5 @@ public class LinkedListADT  <T extends Comparable> implements LinkedListInterfac
         list += "}";
         
         return list;
-    }
+    }//End toString() 
 }//End LinkedListADT

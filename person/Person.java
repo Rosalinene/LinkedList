@@ -16,10 +16,6 @@ RemoveAll(Object obj) // removes all instances of obj
  */
 package person;
 
-/**
- *
- * @author huong
- */
 public abstract class Person 
 {
     protected String name;
@@ -43,7 +39,7 @@ public abstract class Person
         this.city = city;
         this.state = state;
         this.zipcode = zipcode;*/
-    }
+    }//End constructor
 
     public abstract void HelloWorld();
     
@@ -59,17 +55,19 @@ public abstract class Person
         //msg += super.toString();
         
         return msg;
-    }
+    }//End toString()
 /**
  * Description
  * @return what is it returnign
  */
-    public String getName() {
+    public String getName() 
+    {
         return name;
-    }
+    }//End getName() 
 
-    public void setName(String name) {
+    public void setName(String name) 
+    {
         this.name = name;
-    }   
-}
+    }//End setName
+}//End Person
 

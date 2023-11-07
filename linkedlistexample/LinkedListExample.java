@@ -76,5 +76,5 @@ public class LinkedListExample
         System.out.println(myList);
         myList2.Remove(15);
         System.out.println(myList2);
-    }
-}
+    }//End main
+}//End LinkedListExample

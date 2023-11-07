@@ -32,6 +32,5 @@ public interface LinkedListInterface <T>
     
     public T GetValue(int position);
     public T GetValueEnd();
-    public T GetValueFront();
-            
-}
+    public T GetValueFront();        
+}//End LinkedListInterface

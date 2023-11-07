@@ -27,38 +27,43 @@ public class Node <T>
         next = null;
         previous = null;
         value = null;
-    }
+    }//End constructor
 
     public Node(Node<T> next, Node<T> previous, T value) 
     {
         this.next = next;
         this.previous = previous;
         this.value = value;
-    }
+    }//End Node
 
-    public Node<T> getNext() {
+    public Node<T> getNext() 
+    {
         return next;
-    }
+    }//End getNext()
 
-    public void setNext(Node<T> next) {
+    public void setNext(Node<T> next) 
+    {
         this.next = next;
-    }
+    }//End setNext()
 
-    public Node<T> getPrevious() {
+    public Node<T> getPrevious() 
+    {
         return previous;
-    }
+    }//End getPrevious()
 
-    public void setPrevious(Node<T> previous) {
+    public void setPrevious(Node<T> previous) 
+    {
         this.previous = previous;
-    }
+    }//End setPrevious
 
-    public T getValue() {
+    public T getValue() 
+    {
         return value;
-    }
+    }//End getValue()
 
-    public void setValue(T value) {
+    public void setValue(T value) 
+    {
         this.value = value;
-    }
-        
-}
+    }//End setValue       
+}//End Node <T>
 

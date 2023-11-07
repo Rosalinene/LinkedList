@@ -16,10 +16,6 @@ RemoveAll(Object obj) // removes all instances of obj
  */
 package person;
 
-/**
- *
- * @author huong
- */
 public class Address 
 {
     protected String street;
@@ -27,48 +23,58 @@ public class Address
     protected String state;
     protected String zipcode;
 
-    public Address(String street, String city, String state, String zipcode) {
+    public Address(String street, String city, String state, String zipcode) 
+    {
         this.street = street;
         this.city = city;
         this.state = state;
         this.zipcode = zipcode;
-    }
+    }//End constructor
 
     @Override
-    public String toString() {
+    public String toString() 
+    {
         return "Address{" + "street=" + street + ", city=" + city + ", state=" + state + ", zipcode=" + zipcode + '}';
-    }
+    }//End toString()
     
-        public String getStreet() {
+    public String getStreet() 
+    {
         return street;
-    }
+    }//End getStreet()
 
-    public void setStreet(String street) {
+    public void setStreet(String street) 
+    {
         this.street = street;
-    }
+    }//End setStreet
 
-    public String getCity() {
+    public String getCity() 
+    {
         return city;
-    }
+    }//End getCity()
 
-    public void setCity(String city) {
+    public void setCity(String city) 
+    {
         this.city = city;
-    }
+    }//End setCity
 
-    public String getState() {
+    public String getState() 
+    {
         return state;
-    }
+    }//End getState()
 
-    public void setState(String state) {
+    public void setState(String state) 
+    {
         this.state = state;
-    }
+    }//End setState
 
-    public String getZipcode() {
+    public String getZipcode() 
+    {
         return zipcode;
-    }
+    }//End getZipcode() 
 
-    public void setZipcode(String zipcode) {
+    public void setZipcode(String zipcode) 
+    {
         this.zipcode = zipcode;
-    }
-}
+    }//End setZipcode
+}//End Address 
 
